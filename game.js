@@ -55,20 +55,43 @@ function playRound() {
   }
 
   else if (humanChoice === "rock" && computerChoice === "scissors") {
+    playerScore++;
     return `You win! ${humanChoice} beats ${computerChoice}!`;
   }
 
   else if (humanChoice === "paper" && computerChoice === "rock") {
+    playerScore++;
     return `You win! ${humanChoice} beats ${computerChoice}!`;
   }
 
   else if (humanChoice === "scissors" && computerChoice === "paper") {
+    playerScore++;
     return `You win! ${humanChoice} beats ${computerChoice}!`;
   }
 
   else {
+    computerScore++;
     return `You lose! ${computerChoice} beats ${humanChoice}!`;
   }
 }
 
-console.log(playRound());
+function playGame() {
+  console.log(playRound());
+  console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
+  console.log(playRound());
+  console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
+  console.log(playRound());
+  console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
+  console.log(playRound());
+  console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
+  console.log(playRound());
+}
+
+let computerScore = 0;
+let playerScore = 0;
+
+console.log(playGame());
+console.log(
+  `Final Scores:
+  Computer: ${computerScore}
+  You: ${playerScore}`);
