@@ -80,13 +80,14 @@ function playGame() {
     console.log(playRound());
     console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
   }
+
+  while (i === 5) {
+    console.log(`Final Scores:\nComputer: ${computerScore}\nYou: ${playerScore}`);
+    exit;
+  }
 }
 
 let computerScore = 0;
 let playerScore = 0;
 
-console.log(playGame());
-console.log(
-  `Final Scores:
-  Computer: ${computerScore}
-  You: ${playerScore}`);
+playGame();
