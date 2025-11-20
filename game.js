@@ -76,15 +76,10 @@ function playRound() {
 }
 
 function playGame() {
-  console.log(playRound());
-  console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-  console.log(playRound());
-  console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-  console.log(playRound());
-  console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-  console.log(playRound());
-  console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-  console.log(playRound());
+  for (i = 0; i < 5; i++) {
+    console.log(playRound());
+    console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
+  }
 }
 
 let computerScore = 0;
