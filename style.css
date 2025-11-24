@@ -56,6 +56,9 @@ body {
   flex-direction: column;
   white-space: pre;
   font-size: 10px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .ascii p {
