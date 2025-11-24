@@ -35,9 +35,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0;
 }
 
-.title {
+.title, .body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,6 +62,20 @@ body {
   font-weight: 900;
 }
 
+.body {
+  margin: auto 0;
+}
+
+.body .ascii {
+  font-size: 8px;
+  color: var(--text-muted);
+  margin: 64px;
+}
+
+.body .ascii:hover {
+  color: var(--text);
+}
+
 #footer {
   display: flex;
   flex-direction: column;
@@ -73,8 +89,16 @@ body {
   width: 100vw;
 }
 
+#footer p {
+  margin: 4px 0;
+}
+
 @media (max-width: 540px) {
   .ascii {
     font-size: 6px;
+  }
+
+  .body {
+    flex-direction: column;
   }
 }
