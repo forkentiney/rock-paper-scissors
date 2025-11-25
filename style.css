@@ -40,9 +40,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 48px;
-  position: sticky;
-  top: 0;
+  margin-bottom: 64px;
 }
 
 .title, .body, .images, .score {
@@ -99,7 +97,7 @@ body {
   margin: auto 0;
 }
 
-.images .ascii {
+.ascii.button {
   font-size: 8px;
   color: var(--text-muted);
   margin: 64px;
@@ -128,16 +126,13 @@ body {
 }
 
 #footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: flex-end;
   text-align: center;
-  position: sticky;
-  margin-top: 48px;
-  bottom: 0;
+  margin-top: 64px;
   font-size: 14px;
-  height: 6rem;
+  padding: 8px;
   width: 100vw;
 }
 
@@ -145,12 +140,48 @@ body {
   margin: 4px 0;
 }
 
+.license {
+  grid-column: 1;
+}
+
+.info {
+  grid-column: 2;
+}
+
+.contact {
+  grid-column: 3;
+}
+
+.license, .info, .contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-row: 1;
+}
+
+.icon {
+  margin: 1rem;
+  height: 2rem;
+  width: auto;
+}
+
 @media (max-width: 540px) {
   .ascii {
     font-size: 6px;
   }
 
-  .body {
+  .ascii.button {
+    font-size: 4px;
+    margin: 32px;
+  }
+
+  #footer {
+    display: flex;
     flex-direction: column;
+  }
+
+  .license, .info, .contact {
+    margin-bottom: 24px;
   }
 }
