@@ -51,16 +51,16 @@ function getComputerChoice() {
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
-const homeScore = document.querySelector("#playerScore");
-const awayScore = document.querySelector("#computerScore");
+const homeScore = document.querySelectorAll("#playerScore");
+const awayScore = document.querySelectorAll("#computerScore");
 const message = document.querySelector("#message");
+const images = document.querySelector(".images");
+const results = document.querySelector("#results");
 
 let computerScore = 0;
 let playerScore = 0;
 
-homeScore.textContent = `${playerScore}`;
-awayScore.textContent = `${computerScore}`;
-message.textContent = `click an image to play`
+message.textContent = `click an image to play`;
 
 rock.addEventListener("click", () => {
   rock.classList.add("selected");
@@ -83,6 +83,11 @@ scissors.addEventListener("click", () => {
   playRound("scissors");
 });
 
+function updateScores() {
+  homeScore.forEach(score => score.textContent = `${playerScore}`);
+  awayScore.forEach(score => score.textContent = `${computerScore}`);
+}
+
 function playRound(humanChoice) {
   let computerChoice = getComputerChoice();
   console.log(computerChoice);
@@ -90,29 +95,32 @@ function playRound(humanChoice) {
 
   if (humanChoice === computerChoice) {
     message.textContent = `It's a tie! ${humanChoice} is the same as ${computerChoice}`;
-  }
-
-  else if (humanChoice === "rock" && computerChoice === "scissors") {
+  } else if (humanChoice === "rock" && computerChoice === "scissors") {
     playerScore++;
     homeScore.textContent = `${playerScore}`;
     message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
-  }
-
-  else if (humanChoice === "paper" && computerChoice === "rock") {
+  } else if (humanChoice === "paper" && computerChoice === "rock") {
     playerScore++;
     homeScore.textContent = `${playerScore}`;
     message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
-  }
-
-  else if (humanChoice === "scissors" && computerChoice === "paper") {
+  } else if (humanChoice === "scissors" && computerChoice === "paper") {
     playerScore++;
     homeScore.textContent = `${playerScore}`;
     message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
-  }
-
-  else {
+  } else {
     computerScore++;
     awayScore.textContent = `${computerScore}`;
     message.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
   }
+  
+  updateScores();
+  displayResults();
 }
+
+function displayResults() {
+  if (playerScore + computerScore === 5) {
+  images.classList.toggle("hidden");
+  }
+}
+
+updateScores();
