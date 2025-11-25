@@ -39,9 +39,25 @@ function getComputerChoice() {
   }
 }
 
+
+
 function getHumanChoice() {
-  let humanChoice = prompt("What will you play?", "Rock, Paper, or Scissors");
-  return humanChoice.toLowerCase();
+const rock = document.querySelector("#rock");
+rock.addEventListener("click", () => {
+  return rock
+  alert("rock");
+});
+
+const paper = document.querySelector("#paper");
+paper.addEventListener("click", () => {
+  alert("paper");
+});
+
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener("click", () => {
+  alert("scissors");
+});
+  return humanChoice;
 }
 
 function playRound() {
@@ -75,19 +91,7 @@ function playRound() {
   }
 }
 
-function playGame() {
-  for (i = 0; i < 5; i++) {
-    console.log(playRound());
-    console.log(`Computer: ${computerScore}, Player: ${playerScore}`);
-  }
-
-  while (i === 5) {
-    console.log(`Final Scores:\nComputer: ${computerScore}\nYou: ${playerScore}`);
-    exit;
-  }
-}
-
 let computerScore = 0;
 let playerScore = 0;
 
-playGame();
+playRound();
