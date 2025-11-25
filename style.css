@@ -2,7 +2,7 @@
   --bg-dark: hsl(240 9% 13%);
   --text: hsl(240 10% 94%);
   --bg-light: hsl(240 9% 26%);
-  --text-muted: hsl(240 10% 24%);
+  --text-muted: hsl(240 10% 35%);
   --primary: hsl(224 38% 55%);
   --secondary: hsl(224 38% 70%);
   --danger: hsl(0 75% 60%);
@@ -40,7 +40,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 64px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 24px;
+  margin: 0 24px;
+  color: var(--text-muted);
+}
+
+.nav a:hover {
+  color: var(--text);
 }
 
 .title, .body, .images, .score {
