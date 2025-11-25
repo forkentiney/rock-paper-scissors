@@ -40,15 +40,40 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 48px;
   position: sticky;
   top: 0;
 }
 
-.title, .body {
+.title, .body, .images, .score {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.body {
+  flex-direction: column;
+}
+
+#playerScore, #computerScore {
+  font-size: 48px;
+}
+
+.score {
+  margin-bottom: 24px;
+}
+
+.home, .away {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 10vw;
+  font-size: 24px;
+}
+
+.home p, .away p {
+  color: var(--primary);
 }
 
 .word {
@@ -74,14 +99,31 @@ body {
   margin: auto 0;
 }
 
-.body .ascii {
+.images .ascii {
   font-size: 8px;
   color: var(--text-muted);
   margin: 64px;
 }
 
-.body .ascii:hover {
+.ascii.button:hover {
   color: var(--text);
+}
+
+.ascii.selected {
+  color: var(--success);
+}
+
+.ascii.computer {
+  color: var(--danger);
+}
+
+.selected.computer {
+  color: var(--warning);
+}
+
+#message {
+  color: var(--secondary);
+  font-size: 24px;
 }
 
 #footer {
@@ -91,6 +133,7 @@ body {
   align-items: center;
   text-align: center;
   position: sticky;
+  margin-top: 48px;
   bottom: 0;
   font-size: 14px;
   height: 6rem;

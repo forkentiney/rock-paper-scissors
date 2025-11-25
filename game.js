@@ -27,71 +27,92 @@
 function getComputerChoice() {
   let computerChoice = Math.random();
   if (computerChoice < 0.33) {
+    rock.classList.add("computer");
+    paper.classList.remove("computer");
+    scissors.classList.remove("computer");
     return "rock";
   }
 
   else if (0.33 < computerChoice && computerChoice < 0.66) {
+    rock.classList.remove("computer");
+    paper.classList.add("computer");
+    scissors.classList.remove("computer");
     return "paper";
   }
 
   else {
+    rock.classList.remove("computer");
+    paper.classList.remove("computer");
+    scissors.classList.add("computer");
     return "scissors";
   }
 }
 
-
-
-function getHumanChoice() {
 const rock = document.querySelector("#rock");
-rock.addEventListener("click", () => {
-  return rock
-  alert("rock");
-});
-
 const paper = document.querySelector("#paper");
-paper.addEventListener("click", () => {
-  alert("paper");
-});
-
 const scissors = document.querySelector("#scissors");
-scissors.addEventListener("click", () => {
-  alert("scissors");
-});
-  return humanChoice;
-}
-
-function playRound() {
-  let computerChoice = getComputerChoice();
-  let humanChoice = getHumanChoice();
-  console.log(computerChoice);
-  console.log(humanChoice);
-
-  if (humanChoice === computerChoice) {
-    return `It's a tie! ${humanChoice} is the same as ${computerChoice}`;
-  }
-
-  else if (humanChoice === "rock" && computerChoice === "scissors") {
-    playerScore++;
-    return `You win! ${humanChoice} beats ${computerChoice}!`;
-  }
-
-  else if (humanChoice === "paper" && computerChoice === "rock") {
-    playerScore++;
-    return `You win! ${humanChoice} beats ${computerChoice}!`;
-  }
-
-  else if (humanChoice === "scissors" && computerChoice === "paper") {
-    playerScore++;
-    return `You win! ${humanChoice} beats ${computerChoice}!`;
-  }
-
-  else {
-    computerScore++;
-    return `You lose! ${computerChoice} beats ${humanChoice}!`;
-  }
-}
+const homeScore = document.querySelector("#playerScore");
+const awayScore = document.querySelector("#computerScore");
+const message = document.querySelector("#message");
 
 let computerScore = 0;
 let playerScore = 0;
 
-playRound();
+homeScore.textContent = `${playerScore}`;
+awayScore.textContent = `${computerScore}`;
+message.textContent = `click an image to play`
+
+rock.addEventListener("click", () => {
+  rock.classList.add("selected");
+  paper.classList.remove("selected");
+  scissors.classList.remove("selected");
+  playRound("rock");
+});
+
+paper.addEventListener("click", () => {
+  rock.classList.remove("selected");
+  paper.classList.add("selected");
+  scissors.classList.remove("selected");
+  playRound("paper");
+});
+
+scissors.addEventListener("click", () => {
+  rock.classList.remove("selected");
+  paper.classList.remove("selected");
+  scissors.classList.add("selected");
+  playRound("scissors");
+});
+
+function playRound(humanChoice) {
+  let computerChoice = getComputerChoice();
+  console.log(computerChoice);
+  console.log(humanChoice);
+
+  if (humanChoice === computerChoice) {
+    message.textContent = `It's a tie! ${humanChoice} is the same as ${computerChoice}`;
+  }
+
+  else if (humanChoice === "rock" && computerChoice === "scissors") {
+    playerScore++;
+    homeScore.textContent = `${playerScore}`;
+    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+  }
+
+  else if (humanChoice === "paper" && computerChoice === "rock") {
+    playerScore++;
+    homeScore.textContent = `${playerScore}`;
+    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+  }
+
+  else if (humanChoice === "scissors" && computerChoice === "paper") {
+    playerScore++;
+    homeScore.textContent = `${playerScore}`;
+    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+  }
+
+  else {
+    computerScore++;
+    awayScore.textContent = `${computerScore}`;
+    message.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
+  }
+}
