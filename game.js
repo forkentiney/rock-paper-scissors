@@ -39,30 +39,23 @@ function getComputerChoice() {
   }
 }
 
-
-
-function getHumanChoice() {
-const rock = document.querySelector("#rock");
+let choice1 = document.querySelector("#rock");
 rock.addEventListener("click", () => {
-  return rock
-  alert("rock");
+  playRound("rock");
 });
 
-const paper = document.querySelector("#paper");
+let choice2 = document.querySelector("#paper");
 paper.addEventListener("click", () => {
-  alert("paper");
+  playRound("paper");
 });
 
-const scissors = document.querySelector("#scissors");
+let choice3 = document.querySelector("#scissors");
 scissors.addEventListener("click", () => {
-  alert("scissors");
+  playRound("scissors");
 });
-  return humanChoice;
-}
 
-function playRound() {
+function playRound(humanChoice) {
   let computerChoice = getComputerChoice();
-  let humanChoice = getHumanChoice();
   console.log(computerChoice);
   console.log(humanChoice);
 
@@ -94,4 +87,3 @@ function playRound() {
 let computerScore = 0;
 let playerScore = 0;
 
-playRound();
