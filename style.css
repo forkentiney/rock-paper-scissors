@@ -44,11 +44,23 @@ body {
   top: 0;
 }
 
-.title, .body {
+.title, .body, .images, .score {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.body {
+  flex-direction: column;
+}
+
+.home, .away {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 10vw;
+  font-size: 24px;
 }
 
 .word {
@@ -74,14 +86,26 @@ body {
   margin: auto 0;
 }
 
-.body .ascii {
+.images .ascii {
   font-size: 8px;
   color: var(--text-muted);
   margin: 64px;
 }
 
-.body .ascii:hover {
+.ascii.button:hover {
   color: var(--text);
+}
+
+.ascii.selected {
+  color: var(--success);
+}
+
+.ascii.computer {
+  color: var(--danger);
+}
+
+.selected.computer {
+  color: var(--warning);
 }
 
 #footer {

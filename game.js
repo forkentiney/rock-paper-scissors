@@ -27,31 +27,49 @@
 function getComputerChoice() {
   let computerChoice = Math.random();
   if (computerChoice < 0.33) {
+    rock.classList.add("computer");
+    paper.classList.remove("computer");
+    scissors.classList.remove("computer");
     return "rock";
   }
 
   else if (0.33 < computerChoice && computerChoice < 0.66) {
+    rock.classList.remove("computer");
+    paper.classList.add("computer");
+    scissors.classList.remove("computer");
     return "paper";
   }
 
   else {
+    rock.classList.remove("computer");
+    paper.classList.remove("computer");
+    scissors.classList.add("computer");
     return "scissors";
   }
 }
 
 const rock = document.querySelector("#rock");
-rock.addEventListener("click", () => {
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
 
+rock.addEventListener("click", () => {
+  rock.classList.add("selected");
+  paper.classList.remove("selected");
+  scissors.classList.remove("selected");
   playRound("rock");
 });
 
-const paper = document.querySelector("#paper");
 paper.addEventListener("click", () => {
+  rock.classList.remove("selected");
+  paper.classList.add("selected");
+  scissors.classList.remove("selected");
   playRound("paper");
 });
 
-const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", () => {
+  rock.classList.remove("selected");
+  paper.classList.remove("selected");
+  scissors.classList.add("selected");
   playRound("scissors");
 });
 
