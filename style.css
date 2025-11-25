@@ -72,6 +72,10 @@ body {
   font-size: 24px;
 }
 
+.home p, .away p {
+  color: var(--primary);
+}
+
 .word {
   display: flex;
   margin: 16px;
@@ -118,6 +122,7 @@ body {
 }
 
 #message {
+  color: var(--secondary);
   font-size: 24px;
 }
 
