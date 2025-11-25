@@ -39,17 +39,18 @@ function getComputerChoice() {
   }
 }
 
-let choice1 = document.querySelector("#rock");
+const rock = document.querySelector("#rock");
 rock.addEventListener("click", () => {
+
   playRound("rock");
 });
 
-let choice2 = document.querySelector("#paper");
+const paper = document.querySelector("#paper");
 paper.addEventListener("click", () => {
   playRound("paper");
 });
 
-let choice3 = document.querySelector("#scissors");
+const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", () => {
   playRound("scissors");
 });
