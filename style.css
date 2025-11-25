@@ -201,4 +201,13 @@ body {
   .license, .info, .contact {
     margin-bottom: 24px;
   }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    font-size: 16px;
+    margin: 0 18px;
+  }
 }
