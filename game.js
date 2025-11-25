@@ -51,6 +51,16 @@ function getComputerChoice() {
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const homeScore = document.querySelector("#playerScore");
+const awayScore = document.querySelector("#computerScore");
+const message = document.querySelector("#message");
+
+let computerScore = 0;
+let playerScore = 0;
+
+homeScore.textContent = `${playerScore}`;
+awayScore.textContent = `${computerScore}`;
+message.textContent = `click an image to play`
 
 rock.addEventListener("click", () => {
   rock.classList.add("selected");
@@ -79,30 +89,30 @@ function playRound(humanChoice) {
   console.log(humanChoice);
 
   if (humanChoice === computerChoice) {
-    return `It's a tie! ${humanChoice} is the same as ${computerChoice}`;
+    message.textContent = `It's a tie! ${humanChoice} is the same as ${computerChoice}`;
   }
 
   else if (humanChoice === "rock" && computerChoice === "scissors") {
     playerScore++;
-    return `You win! ${humanChoice} beats ${computerChoice}!`;
+    homeScore.textContent = `${playerScore}`;
+    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
   }
 
   else if (humanChoice === "paper" && computerChoice === "rock") {
     playerScore++;
-    return `You win! ${humanChoice} beats ${computerChoice}!`;
+    homeScore.textContent = `${playerScore}`;
+    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
   }
 
   else if (humanChoice === "scissors" && computerChoice === "paper") {
     playerScore++;
-    return `You win! ${humanChoice} beats ${computerChoice}!`;
+    homeScore.textContent = `${playerScore}`;
+    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
   }
 
   else {
     computerScore++;
-    return `You lose! ${computerChoice} beats ${humanChoice}!`;
+    awayScore.textContent = `${computerScore}`;
+    message.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
   }
 }
-
-let computerScore = 0;
-let playerScore = 0;
-

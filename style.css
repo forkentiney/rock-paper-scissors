@@ -40,6 +40,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 48px;
   position: sticky;
   top: 0;
 }
@@ -53,6 +54,14 @@ body {
 
 .body {
   flex-direction: column;
+}
+
+#playerScore, #computerScore {
+  font-size: 48px;
+}
+
+.score {
+  margin-bottom: 24px;
 }
 
 .home, .away {
@@ -108,13 +117,18 @@ body {
   color: var(--warning);
 }
 
+#message {
+  font-size: 24px;
+}
+
 #footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: fixed;
+  position: sticky;
+  margin-top: 48px;
   bottom: 0;
   font-size: 14px;
   height: 6rem;
