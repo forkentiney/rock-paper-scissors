@@ -30,8 +30,9 @@ const scissors = document.querySelector("#scissors");
 const homeScore = document.querySelectorAll("#playerScore");
 const awayScore = document.querySelectorAll("#computerScore");
 const message = document.querySelector("#message");
-const images = document.querySelector(".images");
-const results = document.querySelector("#results");
+const inGame = document.querySelectorAll(".inGame");
+const results = document.querySelector(".results");
+const playAgain = document.querySelector("#playAgain");
 
 let computerScore = 0;
 let playerScore = 0;
@@ -55,6 +56,14 @@ scissors.addEventListener("click", () => {
   paper.classList.remove("selected");
   scissors.classList.add("selected");
   playRound("scissors");
+});
+
+playAgain.addEventListener("click", () => {
+  results.classList.toggle("hidden");
+  inGame.forEach(div => div.classList.toggle("hidden"));
+  playerScore = 0;
+  computerScore = 0;
+  updateScores(computerScore, playerScore);
 });
 
 message.textContent = `click an image to play`;
@@ -83,45 +92,46 @@ function getComputerChoice() {
   }
 }
 
-
-function updateScores() {
+function updateScores(computerScore, playerScore) {
   homeScore.forEach(score => score.textContent = `${playerScore}`);
   awayScore.forEach(score => score.textContent = `${computerScore}`);
 }
 
 function playRound(humanChoice) {
   let computerChoice = getComputerChoice();
-  console.log(computerChoice);
-  console.log(humanChoice);
 
   if (humanChoice === computerChoice) {
-    message.textContent = `It's a tie! ${humanChoice} is the same as ${computerChoice}`;
+    message.textContent = `it's a tie! ${humanChoice} is the same as ${computerChoice}`;
   } else if (humanChoice === "rock" && computerChoice === "scissors") {
     playerScore++;
     homeScore.textContent = `${playerScore}`;
-    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+    message.textContent = `you win! ${humanChoice} beats ${computerChoice}!`;
   } else if (humanChoice === "paper" && computerChoice === "rock") {
     playerScore++;
     homeScore.textContent = `${playerScore}`;
-    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+    message.textContent = `you win! ${humanChoice} beats ${computerChoice}!`;
   } else if (humanChoice === "scissors" && computerChoice === "paper") {
     playerScore++;
     homeScore.textContent = `${playerScore}`;
-    message.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+    message.textContent = `you win! ${humanChoice} beats ${computerChoice}!`;
   } else {
     computerScore++;
     awayScore.textContent = `${computerScore}`;
-    message.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
-  }
+    message.textContent = `you lose! ${computerChoice} beats ${humanChoice}!`;
+  };
+
+  if (playerScore === 3) {
+    results.classList.toggle("hidden");
+    inGame.forEach(div => div.classList.toggle("hidden"));
+    endMessage.textContent = `you won the game`;
+  } else if (computerScore === 3) {
+    results.classList.toggle("hidden");
+    inGame.forEach(div => div.classList.toggle("hidden"));
+    endMessage.textContent = `you lost the game`;
+  };
   
-  updateScores();
+  updateScores(computerScore, playerScore);
   displayResults();
 }
 
-function displayResults() {
-  if (playerScore + computerScore === 5) {
-  images.classList.toggle("hidden");
-  }
-}
-
-updateScores();
+updateScores(computerScore, playerScore);
