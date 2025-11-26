@@ -150,7 +150,7 @@
       </div>
 
       <div class="body">
-        <div class="score">
+        <div class="score inGame">
           <div class="home">
             <p>HOME</p>
             <div id="playerScore"></div>
@@ -161,7 +161,22 @@
           </div>
         </div>
 
-        <div class="images">
+        <div class="results hidden">
+          <p id="endMessage">results</p>
+          <div class="score">
+            <div class="home">
+              <p>HOME</p>
+              <div id="playerScore"></div>
+            </div>
+            <div class="away">
+              <p>AWAY</p>
+              <div id="computerScore"></div>
+            </div>
+          </div>
+          <button id="playAgain">play again</button>
+        </div>
+
+        <div class="images inGame">
           <div id="rock" class="ascii button">
             <p>                 =@@::::*+              </p>
             <p>             %*:::::::::::::@           </p>
@@ -251,7 +266,7 @@
           </div>
         </div>
 
-        <div id="message"></div>
+        <div id="message" class="inGame"></div>
       </div>
 
       <div id="footer">

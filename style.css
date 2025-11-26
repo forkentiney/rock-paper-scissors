@@ -60,14 +60,14 @@ body {
   color: var(--text);
 }
 
-.title, .body, .images, .score {
+.title, .body, .images, .score, .results {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.body {
+.body, .results {
   flex-direction: column;
 }
 
@@ -76,7 +76,7 @@ body {
 }
 
 .score {
-  margin-bottom: 24px;
+  margin: 24px 0;
 }
 
 .home, .away {
@@ -89,6 +89,30 @@ body {
 
 .home p, .away p {
   color: var(--primary);
+}
+
+.results {
+  background-image: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-dark) 4%);
+  border: 2px solid var(--bg-light);
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 48px 12px;
+}
+
+#endMessage {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+#playAgain {
+  border: 2px solid var(--secondary);
+  border-radius: 24px;
+  background-color: var(--bg-dark);
+  padding: 12px;
+}
+
+#playAgain:hover {
+  background-color: var(--success);
 }
 
 .word {
@@ -181,6 +205,10 @@ body {
   margin: 1rem;
   height: 2rem;
   width: auto;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 540px) {
