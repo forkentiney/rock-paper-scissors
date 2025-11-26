@@ -61,8 +61,15 @@ scissors.addEventListener("click", () => {
 playAgain.addEventListener("click", () => {
   results.classList.toggle("hidden");
   inGame.forEach(div => div.classList.toggle("hidden"));
+  message.textContent = `click an image to play`;
   playerScore = 0;
   computerScore = 0;
+  rock.classList.remove("selected");
+  paper.classList.remove("selected");
+  scissors.classList.remove("selected");
+  rock.classList.remove("computer");
+  paper.classList.remove("computer");
+  scissors.classList.remove("computer");
   updateScores(computerScore, playerScore);
 });
 
@@ -123,15 +130,14 @@ function playRound(humanChoice) {
   if (playerScore === 3) {
     results.classList.toggle("hidden");
     inGame.forEach(div => div.classList.toggle("hidden"));
-    endMessage.textContent = `you won the game`;
+    endMessage.textContent = `you won the game!`;
   } else if (computerScore === 3) {
     results.classList.toggle("hidden");
     inGame.forEach(div => div.classList.toggle("hidden"));
-    endMessage.textContent = `you lost the game`;
+    endMessage.textContent = `you lost the game.`;
   };
   
   updateScores(computerScore, playerScore);
-  displayResults();
 }
 
 updateScores(computerScore, playerScore);
