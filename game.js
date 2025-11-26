@@ -24,6 +24,41 @@
 // 17. When round counter is greater than 5, announce winner 
 // 18. Reset scores and round counter.
 
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const homeScore = document.querySelectorAll("#playerScore");
+const awayScore = document.querySelectorAll("#computerScore");
+const message = document.querySelector("#message");
+const images = document.querySelector(".images");
+const results = document.querySelector("#results");
+
+let computerScore = 0;
+let playerScore = 0;
+
+rock.addEventListener("click", () => {
+  rock.classList.add("selected");
+  paper.classList.remove("selected");
+  scissors.classList.remove("selected");
+  playRound("rock");
+});
+
+paper.addEventListener("click", () => {
+  rock.classList.remove("selected");
+  paper.classList.add("selected");
+  scissors.classList.remove("selected");
+  playRound("paper");
+});
+
+scissors.addEventListener("click", () => {
+  rock.classList.remove("selected");
+  paper.classList.remove("selected");
+  scissors.classList.add("selected");
+  playRound("scissors");
+});
+
+message.textContent = `click an image to play`;
+
 function getComputerChoice() {
   let computerChoice = Math.random();
   if (computerChoice < 0.33) {
@@ -48,40 +83,6 @@ function getComputerChoice() {
   }
 }
 
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
-const homeScore = document.querySelectorAll("#playerScore");
-const awayScore = document.querySelectorAll("#computerScore");
-const message = document.querySelector("#message");
-const images = document.querySelector(".images");
-const results = document.querySelector("#results");
-
-let computerScore = 0;
-let playerScore = 0;
-
-message.textContent = `click an image to play`;
-
-rock.addEventListener("click", () => {
-  rock.classList.add("selected");
-  paper.classList.remove("selected");
-  scissors.classList.remove("selected");
-  playRound("rock");
-});
-
-paper.addEventListener("click", () => {
-  rock.classList.remove("selected");
-  paper.classList.add("selected");
-  scissors.classList.remove("selected");
-  playRound("paper");
-});
-
-scissors.addEventListener("click", () => {
-  rock.classList.remove("selected");
-  paper.classList.remove("selected");
-  scissors.classList.add("selected");
-  playRound("scissors");
-});
 
 function updateScores() {
   homeScore.forEach(score => score.textContent = `${playerScore}`);
