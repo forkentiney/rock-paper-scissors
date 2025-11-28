@@ -148,6 +148,7 @@ body {
 
 .ascii.button:hover {
   color: var(--text);
+  text-shadow: 4px 4px 2px black;
 }
 
 .ascii.selected {
